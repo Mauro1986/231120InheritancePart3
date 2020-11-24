@@ -12,7 +12,7 @@ namespace Polymorphisme
     {
         static void Main(string[] args)
         {
-      
+
 
             Auto[] autos = new Auto[3];
             //Bmw[] autos = new Bmw[3];
@@ -44,12 +44,41 @@ namespace Polymorphisme
 
             foreach (var item in autos)
             {
-                Console.WriteLine(item);
+                //Console.WriteLine(item);
+                Print(item);
+
+            }
+  
+            //Print(auto);
+            //Print(bmwTemp);
+            //Print(audi);
+            
+        }
+        public static void Print(Auto auto)
+        {
+
+            Console.WriteLine("***************Print method*********************"); ;
+            if (auto is Auto)
+            {
+                Console.WriteLine(auto.Name);
+                Console.WriteLine(auto.Color);
             }
 
-            Console.WriteLine(bmwTemp.Id);
-            Console.WriteLine(bmwTemp.Id);
-            Console.WriteLine(bmwTemp.Color);
+            if (auto is Bmw)
+            {
+                Bmw bmw = auto as Bmw;       // is het zelfde als Casting zoals vb Audi audi = (Audi)auto;
+                Console.WriteLine($"{bmw.Id}");
+                Console.WriteLine($"{bmw.Name}");
+                Console.WriteLine($"{bmw.Color}");
+            }
+            if (auto is Audi)
+            {
+                Audi audi = (Audi)auto;
+                Console.WriteLine($"{audi.Id}");
+                Console.WriteLine($"{audi.Name}");
+                Console.WriteLine($"{audi.Color}");
+            }
         }
+
     }
 }
